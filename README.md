@@ -9,7 +9,7 @@ Static HTML, CSS and two small scripts. No build step, no dependencies, no track
 - `index.html`: the landing page.
 - `privacy.html`, `terms.html`, `support.html`, `release-notes.html`, `404.html`: text pages. They share the header and footer, so change those in every file.
 - `styles.css`: all styles. Colours are tokens at the top, with a light set under `:root[data-theme="light"]`.
-- `theme.js`: the light/dark switch. Follows the system until the visitor picks one.
+- `theme.js`: the light/dark switch. Light by default; the visitor's choice is remembered.
 - `site.js`: the split-flap board, the countdown, the Duo tabs and the rating toy.
 - `assets/`: screenshots come in pairs, `name.jpg` (light) and `name-dark.jpg`.
 
