@@ -2,16 +2,9 @@
 
 // Set this to the App Store link once the app is live, e.g.
 // "https://apps.apple.com/app/id0000000000". While it is empty, the
-// download buttons ask for a TestFlight invite by email instead.
+// download buttons open the TestFlight invite form instead.
 const APP_STORE_URL = "";
 const BETA_EMAIL = "hello@afonso.me";
-const BETA_REQUEST = [
-  "Hi Afonso, I'd like to try the CineTrack beta.",
-  "",
-  "Email on my Apple Account (for the TestFlight invite): ",
-  "My device (iPhone, iPad or iPhone Duo): ",
-  "My iOS version (it needs 27 or later): ",
-].join("\n");
 
 // The season's dates come from the same manifest the app reads, so the
 // countdown follows the data repo. The copy below is used if that fails.
@@ -312,13 +305,102 @@ function storeLinks() {
       link.href = APP_STORE_URL;
       link.textContent = link.dataset.store || "Download on the App Store";
     } else {
-      link.href = `mailto:${BETA_EMAIL}?subject=${encodeURIComponent("CineTrack beta invite")}&body=${encodeURIComponent(BETA_REQUEST)}`;
+      link.href = "#invite";
+      link.dataset.openInvite = "";
       link.textContent = "Request a TestFlight invite";
     }
   });
 }
 
+/* ---------- TestFlight invite form ---------- */
+
+// The form writes an email; the visitor picks how to send it. Nothing is
+// sent from this page.
+function inviteForm() {
+  const dialog = $("#invite");
+  if (!dialog) return;
+  const form = $("#invite-form");
+  const done = $("#invite-done");
+  const error = $("#invite-error");
+  const gmail = $("#invite-gmail");
+  const mail = $("#invite-mail");
+  const hint = $("#invite-hint");
+  const address = $("#invite-address");
+  const copyBox = $("#invite-copy");
+  const copyButton = $("#invite-copy-button");
+  address.href = `mailto:${BETA_EMAIL}`;
+  address.textContent = BETA_EMAIL;
+  const fallbackMail = () => { location.href = `mailto:${BETA_EMAIL}?subject=${encodeURIComponent("CineTrack beta invite")}`; };
+
+  const open = () => {
+    form.hidden = false; done.hidden = true; error.hidden = true;
+    if (typeof dialog.showModal !== "function") return fallbackMail();
+    if (!dialog.open) dialog.showModal();
+  };
+  document.addEventListener("click", (event) => {
+    const trigger = event.target.closest("[data-open-invite]");
+    if (!trigger) return;
+    event.preventDefault();
+    open();
+  });
+  if (location.hash === "#invite" && !APP_STORE_URL) open();
+  $$("[data-close-invite]", dialog).forEach((button) => button.addEventListener("click", () => dialog.close()));
+  $("[data-edit-invite]", dialog).addEventListener("click", () => { done.hidden = true; form.hidden = false; });
+  dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
+  dialog.addEventListener("close", () => { if (location.hash === "#invite") history.replaceState(null, "", location.pathname); });
+
+  copyButton.addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText(copyBox.value); }
+    catch { copyBox.select(); document.execCommand("copy"); }
+    copyButton.textContent = "Copied";
+  });
+  // If the Gmail app isn't installed its link does nothing, so say what to do instead.
+  gmail.addEventListener("click", () => {
+    if (!gmail.href.startsWith("googlegmail:")) return;
+    setTimeout(() => { if (!document.hidden) hint.firstChild.textContent = "Gmail didn't open? Tap Copy the email, then paste it into a new email to "; }, 1500);
+  });
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const name = (data.get("name") || "").trim();
+    const email = (data.get("email") || "").trim();
+    const devices = data.getAll("devices").join(", ");
+    const note = (data.get("note") || "").trim();
+    const fail = (message, field) => { error.textContent = message; error.hidden = false; form.elements[field]?.focus?.(); };
+    if (!name) return fail("Please add your name.", "name");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail("That email doesn't look right.", "email");
+    if (!data.get("os")) return fail("The beta needs iOS or iPadOS 27 or later. Tick the box once your device is on it.", "os");
+    if (!data.get("consent")) return fail("Please tick the box about beta software to continue.", "consent");
+    error.hidden = true;
+
+    // A plain-text email (mailto can't carry formatting), laid out to read well.
+    const body = [
+      "Hi Afonso,", "",
+      "I'd like to join the CineTrack beta.", "",
+      `Name: ${name}`,
+      `Apple Account email: ${email}`,
+      `Devices: ${devices || "Not said"}`,
+      "On iOS or iPadOS 27 or later: yes",
+      ...(note ? ["", `Note: ${note}`] : []),
+      "", "I understand this is beta software, and I've read the terms and privacy policy.",
+    ].join("\n");
+    const subject = `CineTrack beta request: ${name}`;
+    const query = `to=${encodeURIComponent(BETA_EMAIL)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const apple = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    // On iPhone and iPad the Gmail app has its own link; elsewhere Gmail opens in the browser.
+    gmail.href = apple ? `googlegmail:///co?${query}` : `https://mail.google.com/mail/?view=cm&fs=1&${query.replace("subject=", "su=")}`;
+    if (apple) gmail.removeAttribute("target"); else gmail.target = "_blank";
+    mail.href = `mailto:${BETA_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    copyBox.value = `To: ${BETA_EMAIL}\nSubject: ${subject}\n\n${body}`;
+    copyButton.textContent = "Copy the email";
+    hint.firstChild.textContent = "Copying? Paste it into a new email to ";
+    form.hidden = true; done.hidden = false;
+  });
+}
+
 storeLinks();
+inviteForm();
 heroBoard();
 countdown();
 tabs();

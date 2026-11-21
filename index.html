@@ -18,8 +18,8 @@
 <link rel="canonical" href="https://cinetrackapp.com/">
 <link rel="icon" href="assets/icon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<script src="theme.js?v=202611211"></script>
-<link rel="stylesheet" href="styles.css?v=202611211">
+<script src="theme.js?v=202611212"></script>
+<link rel="stylesheet" href="styles.css?v=202611212">
 </head>
 <body>
 <div class="glow" aria-hidden="true"></div>
@@ -46,7 +46,7 @@
       <div class="board" data-board aria-hidden="true"></div>
       <p class="lede">Track every shortlisted and nominated film, fill in your ballot, and watch your score flip over live on ceremony night.</p>
       <div class="actions">
-        <a class="button" data-store="Download on the App Store" href="mailto:hello@afonso.me?subject=CineTrack%20beta%20invite">Request a TestFlight invite</a>
+        <a class="button" data-store="Download on the App Store" href="#invite">Request a TestFlight invite</a>
         <a class="button quiet" href="#season">See how a season goes</a>
       </div>
       <p class="fine"><span class="badge">Beta</span> Free during the beta. For iPhone, iPad and iPhone Duo with iOS 27 or later.</p>
@@ -222,7 +222,7 @@
       <h2 style="margin-top: 12px">Ready for the season?</h2>
       <p class="lede">CineTrack 3 is in beta on TestFlight. It is free during the beta, with no ads and nothing to sign up for. Ask for an invite and you will get a TestFlight link by email.</p>
       <div class="actions">
-        <a class="button" data-store="Download on the App Store" href="mailto:hello@afonso.me?subject=CineTrack%20beta%20invite">Request a TestFlight invite</a>
+        <a class="button" data-store="Download on the App Store" href="#invite">Request a TestFlight invite</a>
         <a class="button quiet" href="support.html#beta">How the beta works</a>
       </div>
       <p class="fine">You need an iPhone or iPad with iOS 27 or later. To check yours, open Settings → General → About. It will not install on anything older.</p>
@@ -255,6 +255,51 @@
     </div>
   </footer>
 </div>
-<script src="site.js?v=202611211"></script>
+<dialog id="invite" aria-labelledby="invite-title">
+  <form id="invite-form" method="dialog" novalidate>
+    <div class="dialog-head">
+      <h2 id="invite-title">Request a TestFlight invite</h2>
+      <button class="close" type="button" data-close-invite aria-label="Close">×</button>
+    </div>
+    <p class="dialog-lede">Answer a few questions and your request is written for you. If there is a spot, a TestFlight invite arrives by email.</p>
+    <label>Name<input name="name" autocomplete="name" required></label>
+    <label>Email <small>the one on your Apple Account, so the invite works</small><input name="email" type="email" autocomplete="email" inputmode="email" required></label>
+    <fieldset>
+      <legend>Devices you'd use it on</legend>
+      <label class="tick"><input type="checkbox" name="devices" value="iPhone"> iPhone</label>
+      <label class="tick"><input type="checkbox" name="devices" value="iPhone Duo"> iPhone Duo</label>
+      <label class="tick"><input type="checkbox" name="devices" value="iPad"> iPad</label>
+    </fieldset>
+    <label class="tick consent"><input type="checkbox" name="os" required> <span>My device runs iOS or iPadOS 27 or later. <small>Check in Settings → General → About. The app can't install on older versions.</small></span></label>
+    <label>Anything else? <small>optional</small><textarea name="note" rows="2" maxlength="600" placeholder="How you follow awards season, who you'd play a pool with…"></textarea></label>
+    <label class="tick consent"><input type="checkbox" name="consent" required> <span>I understand this is beta software and can have bugs. I've read the <a href="terms.html" target="_blank" rel="noopener">terms</a> and <a href="privacy.html" target="_blank" rel="noopener">privacy policy</a>.</span></label>
+    <p class="form-error" id="invite-error" role="alert" hidden></p>
+    <p class="how">Next you choose how to send it: Gmail, your Mail app, or copy and paste. Nothing is sent until you do.</p>
+    <div class="dialog-actions">
+      <button class="button quiet" type="button" data-close-invite>Cancel</button>
+      <button class="button" type="submit">Continue</button>
+    </div>
+    <p class="fine">Your details are used only to run the beta, and deleted when it ends or when you ask.</p>
+  </form>
+  <div id="invite-done" hidden>
+    <div class="dialog-head">
+      <h2>Last step: send it.</h2>
+      <button class="close" type="button" data-close-invite aria-label="Close">×</button>
+    </div>
+    <p class="dialog-lede">Your request is written. Choose how you'd like to send it.</p>
+    <div class="send-ways">
+      <a class="button" id="invite-gmail" target="_blank" rel="noopener">Open in Gmail</a>
+      <a class="button" id="invite-mail">Open in Mail app</a>
+      <button class="button quiet" type="button" id="invite-copy-button">Copy the email</button>
+    </div>
+    <p class="fine" id="invite-hint">Copying? Paste it into a new email to <a id="invite-address"></a>. This is what will be sent:</p>
+    <textarea id="invite-copy" readonly rows="9" aria-label="Your request, ready to copy"></textarea>
+    <div class="dialog-actions">
+      <button class="button quiet" type="button" data-edit-invite>Back</button>
+      <button class="button quiet" type="button" data-close-invite>Done</button>
+    </div>
+  </div>
+</dialog>
+<script src="site.js?v=202611212"></script>
 </body>
 </html>
