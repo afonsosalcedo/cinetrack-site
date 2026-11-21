@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CineTrack — your awards season companion</title>
+<meta name="description" content="Track every shortlisted and nominated film, fill in your ballot, and follow your score live on ceremony night. For iPhone, iPad and iPhone Duo.">
+<meta property="og:title" content="CineTrack">
+<meta property="og:description" content="Your awards season companion. Watch everything, call the winners, beat your friends.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cinetrackapp.com/">
+<meta property="og:image" content="https://cinetrackapp.com/assets/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="CineTrack: a split-flap board with a gold C.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0e0e10">
+<link rel="canonical" href="https://cinetrackapp.com/">
+<link rel="icon" href="assets/icon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<script src="theme.js?v=202611211"></script>
+<link rel="stylesheet" href="styles.css?v=202611211">
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+<div class="wrap">
+
+  <header class="top">
+    <a class="brand" href="./"><img src="assets/icon.png" alt="" width="34" height="34"> CineTrack</a>
+    <nav>
+      <a class="hide-narrow" href="#season">The season</a>
+      <a class="hide-narrow" href="#duo">iPhone Duo</a>
+      <a class="hide-narrow" href="#privacy">Privacy</a>
+      <div class="theme-switch" role="group" aria-label="Appearance">
+        <button type="button" data-theme-set="light" aria-pressed="false" aria-label="Light" title="Light"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg></button>
+        <button type="button" data-theme-set="dark" aria-pressed="false" aria-label="Dark" title="Dark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.2 8.2 0 1 0 10.2 10.2z"/></svg></button>
+      </div>
+      <a class="button small" href="#get">Join the beta</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" style="padding-top: clamp(28px, 6vw, 72px)">
+      <p class="eyebrow">Your awards season companion</p>
+      <h1 class="sr-only">CineTrack: watch everything, call the winners, beat your friends.</h1>
+      <div class="board" data-board aria-hidden="true"></div>
+      <p class="lede">Track every shortlisted and nominated film, fill in your ballot, and watch your score flip over live on ceremony night.</p>
+      <div class="actions">
+        <a class="button" data-store="Download on the App Store" href="mailto:hello@afonso.me?subject=CineTrack%20beta%20invite">Request a TestFlight invite</a>
+        <a class="button quiet" href="#season">See how a season goes</a>
+      </div>
+      <p class="fine"><span class="badge">Beta</span> Free during the beta. For iPhone, iPad and iPhone Duo with iOS 27 or later.</p>
+
+      <div class="countdown" data-countdown hidden>
+        <span class="label" aria-hidden="true"></span>
+        <div class="units" aria-hidden="true"></div>
+        <span class="sr-only" role="status"></span>
+      </div>
+
+      <div class="stage" data-tilt>
+        <div class="frame duo-open layer" data-depth="8"><picture><source data-dark srcset="assets/duo-open-films-dark.jpg" media="all"><img src="assets/duo-open-films.jpg" alt="CineTrack on an open iPhone Duo: the list of films on the left and one film's page on the right." width="2000" height="1407"></picture></div>
+        <div class="frame phone layer" data-depth="20"><picture><source data-dark srcset="assets/max-film-detail-rated-dark.jpg" media="all"><img src="assets/max-film-detail-rated.jpg" alt="A film's page on iPhone, marked as watched with a five-star rating." width="780" height="1694"></picture></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="marquee" aria-hidden="true"><div class="track"><span>Watched it</span><span>Best Picture Race</span><span>Four and a half stars</span><span class="hot">Called it</span><span>Up Next</span><span>Halfway There</span><span class="hot">Correct pick</span><span>Quick Watches</span><span>Five in a row</span><span>Final Stretch</span><span>Surprise Me</span><span class="hot">Category complete</span><span>Watched it</span><span>Best Picture Race</span><span>Four and a half stars</span><span class="hot">Called it</span><span>Up Next</span><span>Halfway There</span><span class="hot">Correct pick</span><span>Quick Watches</span><span>Five in a row</span><span>Final Stretch</span><span>Surprise Me</span><span class="hot">Category complete</span></div></div>
+
+<div class="wrap">
+  <main>
+    <section id="season">
+      <div class="section-head reveal">
+        <p class="eyebrow">One season, three acts</p>
+        <h2>From the first shortlist to the last envelope.</h2>
+        <p class="lede">CineTrack changes with the season. The list fills in when shortlists and nominations are announced, and everything you have marked comes with you.</p>
+      </div>
+
+      <div class="acts">
+        <article class="act reveal">
+          <div class="copy">
+            <div class="when"><span class="num">1</span> Before the nominations</div>
+            <h3>Watch everything.</h3>
+            <p>Start with the films you are already watching, then let the shortlists join them. Each film shows what it is up for, where to watch it and how much of the season you have covered.</p>
+            <ul>
+              <li>Rate in half stars and record the day you watched</li>
+              <li>Add any film yourself. It keeps your rating if it is nominated</li>
+              <li>Trailers, cast and where to stream, rent or buy</li>
+              <li>Bring in your Letterboxd diary</li>
+            </ul>
+          </div>
+          <div class="shots">
+            <div class="frame phone"><picture><source data-dark srcset="assets/max-films-dark.jpg" media="all"><img src="assets/max-films.jpg" alt="The Films tab: the season's films with posters, directors and nomination counts." width="780" height="1694" loading="lazy"></picture></div>
+            <div class="frame phone"><picture><source data-dark srcset="assets/max-film-detail-cast-dark.jpg" media="all"><img src="assets/max-film-detail-cast.jpg" alt="A film's nominations, with the ones it won marked in gold, above its main cast." width="780" height="1694" loading="lazy"></picture></div>
+          </div>
+        </article>
+
+        <article class="act flip reveal">
+          <div class="copy">
+            <div class="when"><span class="num">2</span> When the nominations land</div>
+            <h3>Call it.</h3>
+            <p>Guess the nominees from the shortlists before they are announced. Then pick a winner in every category. Your ballot saves as you go and locks when the ceremony begins.</p>
+            <ul>
+              <li>A progress ring for every category</li>
+              <li>Send a category's unwatched films to Up Next in one tap</li>
+              <li>Start a pool and share its code or QR code</li>
+              <li>Nobody sees your picks until the ceremony starts</li>
+            </ul>
+          </div>
+          <div class="shots">
+            <div class="frame phone"><picture><source data-dark srcset="assets/max-ballot-dark.jpg" media="all"><img src="assets/max-ballot.jpg" alt="Predict the Nominees: a countdown to when predictions lock, and a list of categories." width="780" height="1694" loading="lazy"></picture></div>
+            <div class="frame phone"><picture><source data-dark srcset="assets/max-category-animated-dark.jpg" media="all"><img src="assets/max-category-animated.jpg" alt="A category's nominees, with the winner outlined in gold and a watched film showing five stars." width="780" height="1694" loading="lazy"></picture></div>
+          </div>
+        </article>
+
+        <article class="act reveal">
+          <div class="copy">
+            <div class="when"><span class="num">3</span> Ceremony night</div>
+            <h3>Watch your score flip.</h3>
+            <p>Winners arrive as they are announced. Each category turns green or red, your score ticks over on a split-flap board, and your pool's leaderboard reshuffles while you watch.</p>
+            <ul>
+              <li>A Live Activity on your Lock Screen</li>
+              <li>See what everyone in your pool picked</li>
+              <li>A little celebration every time you call one</li>
+              <li>A results card to share when it is over</li>
+            </ul>
+          </div>
+          <div class="cards" style="margin-top: 0">
+            <figure><img src="assets/share-single-stat.png" alt="A share image of one progress figure on split-flap tiles." width="760" height="760" loading="lazy"></figure>
+            <figure><img src="assets/share-results.png" alt="A share image of ceremony results: 17 of 24, 71% correct, best streak 5 in a row, Best Picture called." width="526" height="760" loading="lazy"></figure>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="duo">
+      <div class="section-head reveal">
+        <p class="eyebrow">iPhone Duo</p>
+        <h2>Folded, it's a checklist. Open, it's the whole season.</h2>
+        <div class="tabs" role="tablist" aria-label="iPhone Duo poses">
+          <button role="tab" id="tab-open" aria-controls="pose-open" aria-selected="true">Open</button>
+          <button role="tab" id="tab-folded" aria-controls="pose-folded" aria-selected="false" tabindex="-1">Folded</button>
+        </div>
+      </div>
+
+      <div class="pose reveal" role="tabpanel" id="pose-open" aria-labelledby="tab-open">
+        <figure><div class="frame duo-open"><picture><source data-dark srcset="assets/duo-open-films-dark.jpg" media="all"><img src="assets/duo-open-films.jpg" alt="An open iPhone Duo: the list of films on one half and the film you tapped on the other." width="2000" height="1407" loading="lazy"></picture></div></figure>
+        <div class="says">
+          <h3>Two halves, two jobs.</h3>
+          <p>Open the Duo and the list stays on one side while the film, category or pool you tapped opens on the other. Work down the nominees without losing your place.</p>
+          <p>On ceremony night, fold it part-way and stand it up: the score takes one half as a split-flap board, and your ballot keeps the other.</p>
+        </div>
+      </div>
+
+      <div class="pose narrow reveal" role="tabpanel" id="pose-folded" aria-labelledby="tab-folded" hidden>
+        <div class="view">
+          <div class="frame duo-fold"><picture><source data-dark srcset="assets/duo-closed-films-dark.jpg" media="all"><img src="assets/duo-closed-films.jpg" alt="The Films list on a folded iPhone Duo, with the tabs in a rail down the side." width="900" height="1309" loading="lazy"></picture></div>
+          <div class="frame duo-fold"><picture><source data-dark srcset="assets/duo-closed-film-detail-dark.jpg" media="all"><img src="assets/duo-closed-film-detail.jpg" alt="A film's page on a folded iPhone Duo." width="900" height="1309" loading="lazy"></picture></div>
+        </div>
+        <div class="says">
+          <h3>Everything, in your pocket.</h3>
+          <p>The outer screen gets the full app, with the tabs in a rail under your thumb. Tick off a film on the way out of the cinema, and open up when you get home.</p>
+          <p>Open and close it as often as you like. You stay on the film you were looking at.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="section-head reveal">
+        <p class="eyebrow">And the rest</p>
+        <h2>Small things that make a long season fun.</h2>
+      </div>
+      <div class="grid">
+        <article class="tile reveal"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v17l-6-4-6 4z"/></svg></div><h3>Up Next</h3><p>A watch queue you can reorder, with the runtime you have left. Fill it with the Best Picture race, the quick watches under an hour, or Surprise Me.</p></article>
+        <article class="tile reveal"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></div><h3>Your Year</h3><p>Films watched month by month, and a calendar of the days you watched them. Share a month as a poster wall.</p></article>
+        <article class="tile reveal"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2.5"/><path d="M8 21h8M10.5 9.2v3.6l3.2-1.8z"/></svg></div><h3>Where to watch</h3><p>See where each film is streaming, or where to rent or buy it, and jump straight to the app. United States availability, by JustWatch.</p></article>
+        <article class="tile reveal"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19h14"/></svg></div><h3>Letterboxd</h3><p>Enter your username and the films in your diary are marked as watched, with your ratings. CineTrack only reads. Nothing is sent back.</p></article>
+        <article class="tile reveal"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 10.5a3.75 3.75 0 0 1-.5 7.5z"/></svg></div><h3>iCloud sync</h3><p>Your films, ratings, ballot and predictions follow you between iPhone, iPad and Duo through your own iCloud.</p></article>
+        <article class="tile reveal"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H4.5a3.5 3.5 0 0 0 3.6 4M16 6h3.5a3.5 3.5 0 0 1-3.6 4M12 13v4M8.5 20h7"/></svg></div><h3>Leaderboards</h3><p>See how your progress, predictions and ballot rank against other film lovers on Game Center, and collect achievements on the way to 100%.</p></article>
+        <article class="tile reveal"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9zM18.5 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg></div><h3>Little celebrations</h3><p>Confetti when you finish a film. A banner when you complete a category, hit halfway, or call a winner. It should feel good to tick things off.</p></article>
+        <article class="tile reveal"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></div><h3>Every season you've played</h3><p>Switch back to past seasons to see what you watched, how you rated it and how your ballot did.</p></article>
+      </div>
+    </section>
+
+    <section class="rate reveal">
+      <div class="section-head">
+        <p class="eyebrow">Try it</p>
+        <h2>Go on. Rate the last film you watched.</h2>
+      </div>
+      <div class="rate-card">
+        <p class="q">Half stars count.</p>
+        <div><div class="stars" data-stars role="slider" tabindex="0" aria-label="Your rating" aria-valuemin="0.5" aria-valuemax="5" aria-valuenow="0" aria-valuetext="Not rated yet"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="star0"><rect data-fill x="0" y="0" width="0" height="24"/></clipPath></defs><path class="empty" d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/><path class="full" d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z" clip-path="url(#star0)"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="star1"><rect data-fill x="0" y="0" width="0" height="24"/></clipPath></defs><path class="empty" d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/><path class="full" d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z" clip-path="url(#star1)"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="star2"><rect data-fill x="0" y="0" width="0" height="24"/></clipPath></defs><path class="empty" d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/><path class="full" d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z" clip-path="url(#star2)"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="star3"><rect data-fill x="0" y="0" width="0" height="24"/></clipPath></defs><path class="empty" d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/><path class="full" d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z" clip-path="url(#star3)"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="star4"><rect data-fill x="0" y="0" width="0" height="24"/></clipPath></defs><path class="empty" d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z"/><path class="full" d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5L2.6 9.4l6.5-.9z" clip-path="url(#star4)"/></svg></div></div>
+        <div><div class="score" aria-hidden="true"><div class="flap"><span>0</span></div><span class="dot">.</span><div class="flap"><span>0</span></div></div></div>
+        <p class="verdict" aria-live="polite">Tap a star.</p>
+      </div>
+    </section>
+
+    <section class="panel reveal" id="privacy" style="padding-top: clamp(28px, 5vw, 56px)">
+      <p class="eyebrow">Private by default</p>
+      <h2>No sign-up. No ads. Nothing sold.</h2>
+      <div class="cols">
+        <div><h3>Nothing to sign up for.</h3><p>CineTrack never asks for your email address or your name. Open it and start ticking off films.</p></div>
+        <div><h3>Your films stay yours.</h3><p>What you watched and how you rated it lives on your devices and in your own iCloud. The developer can't see it.</p></div>
+        <div><h3>Pools share only the game.</h3><p>Join a pool and its members see the display name you choose, your score and, once the ceremony starts, your picks.</p></div>
+      </div>
+      <p class="fine" style="margin-top: 26px">The app counts anonymous usage, such as how many people have it open on ceremony night, so it can be kept running smoothly. It is never used for advertising. <a href="privacy.html">Read the privacy policy</a></p>
+    </section>
+
+    <section class="panel reveal" id="story" style="padding-top: clamp(28px, 5vw, 56px)">
+      <div class="story">
+        <p class="eyebrow">The story</p>
+        <h2>It started as a spreadsheet.</h2>
+        <p>Every year I tried to watch every nominated film before the ceremony, and every year I kept track in a spreadsheet. In 2024 I decided to learn SwiftUI and turn it into an app. I'm a photographer, not a developer, so it took a while.</p>
+        <p>Last season more than fifty fellow film lovers tested the early versions, and their feedback shaped almost everything in it. Version 3 is the app I wanted from the start.</p>
+        <p class="sign">Happy watching. <a href="https://afonso.me" rel="noopener">Afonso</a></p>
+      </div>
+    </section>
+
+    <section class="get reveal" id="get">
+      <img class="icon" src="assets/icon.png" alt="" width="96" height="96" loading="lazy">
+      <p class="eyebrow">Now in beta</p>
+      <h2 style="margin-top: 12px">Ready for the season?</h2>
+      <p class="lede">CineTrack 3 is in beta on TestFlight. It is free during the beta, with no ads and nothing to sign up for. Ask for an invite and you will get a TestFlight link by email.</p>
+      <div class="actions">
+        <a class="button" data-store="Download on the App Store" href="mailto:hello@afonso.me?subject=CineTrack%20beta%20invite">Request a TestFlight invite</a>
+        <a class="button quiet" href="support.html#beta">How the beta works</a>
+      </div>
+      <p class="fine">You need an iPhone or iPad with iOS 27 or later. To check yours, open Settings → General → About. It will not install on anything older.</p>
+    </section>
+
+    <section class="faq reveal" id="faq">
+      <p class="eyebrow">Questions</p>
+      <h2>Fair things to ask.</h2>
+      <div style="margin-top: 24px">
+        <details><summary>How do I get it?</summary><p>CineTrack 3 is in beta. Ask for an invite with the button above, giving the email address on your Apple Account, and a TestFlight link will arrive by email. You need iOS 27 or later.</p></details>
+        <details><summary>What does it cost?</summary><p>It is free during the beta, and there are no ads. Pricing after the beta has not been decided.</p></details>
+        <details><summary>Do I need an account?</summary><p>No. To play in a pool you choose a display name, and that is all anyone sees.</p></details>
+        <details><summary>When do the films appear?</summary><p>You can add films yourself at any time. Shortlisted films arrive when the shortlists are announced and the nominees when nominations are announced. The app offers the new list as soon as it is ready, and keeps everything you had already marked.</p></details>
+        <details><summary>How do pools work?</summary><p>Once nominations are out, create a pool and share its code. Friends join with the code, everyone fills in a ballot, and on ceremony night the leaderboard updates as winners are announced. Pools are free and just for fun: the app handles no money.</p></details>
+        <details><summary>Does it work outside the United States?</summary><p>Yes. Everything works everywhere except Where to Watch, which shows United States availability for now.</p></details>
+        <details><summary>Do I need an iPhone Duo?</summary><p>No. It is a complete app on any iPhone or iPad with iOS 27 or later. It just makes good use of the Duo if you have one.</p></details>
+        <details><summary>Is this an official awards app?</summary><p>No. CineTrack is independent, made by one film lover, and is not affiliated with the Academy or any other awards body.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="row">
+      <span>CineTrack. Made with love for film lovers.</span>
+      <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="support.html">Support</a> · <a href="release-notes.html">Release notes</a> · <a href="mailto:hello@afonso.me">hello@afonso.me</a></span>
+    </div>
+    <div class="legal">
+      <p>CineTrack is an independent app. It is not affiliated with, endorsed by or sponsored by the Academy of Motion Picture Arts and Sciences. "Oscar", "Oscars" and "Academy Awards" are trademarks of the Academy.</p>
+      <p>This product uses the TMDB API but is not endorsed or certified by TMDB. Streaming availability data by JustWatch. Film posters and titles belong to their owners.</p>
+    </div>
+  </footer>
+</div>
+<script src="site.js?v=202611211"></script>
+</body>
+</html>
