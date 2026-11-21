@@ -4,7 +4,7 @@
 // "https://apps.apple.com/app/id0000000000". While it is empty, the
 // download buttons open the TestFlight invite form instead.
 const APP_STORE_URL = "";
-const BETA_EMAIL = "hello@afonso.me";
+const BETA_EMAIL = "hello@cinetrackapp.com";
 
 // The season's dates come from the same manifest the app reads, so the
 // countdown follows the data repo. The copy below is used if that fails.
