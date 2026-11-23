@@ -64,9 +64,9 @@ function heroBoard() {
   const cols = 10;
   const lines = [
     ["WELCOME TO", "CINETRACK"],
-    ["WATCH", "EVERYTHING"],
-    ["CALL THE", "WINNERS"],
-    ["BEAT YOUR", "FRIENDS"],
+    ["WATCH THE", "NOMINEES"],
+    ["PICK THE", "WINNERS"],
+    ["PLAY WITH", "FRIENDS"],
   ];
   const flaps = [];
   for (let i = 0; i < cols * 2; i += 1) {
