@@ -2,7 +2,7 @@
 
 // Set this to the App Store link once the app is live, e.g.
 // "https://apps.apple.com/app/id0000000000". While it is empty, the
-// download buttons open the TestFlight invite form instead.
+// download buttons open the launch-list form instead.
 const APP_STORE_URL = "";
 const BETA_EMAIL = "hello@cinetrackapp.com";
 
@@ -307,12 +307,16 @@ function storeLinks() {
     } else {
       link.href = "#invite";
       link.dataset.openInvite = "";
-      link.textContent = "Request a TestFlight invite";
+      link.textContent = "Tell me when it's out";
     }
   });
 }
 
-/* ---------- TestFlight invite form ---------- */
+/* ---------- Launch-list form ---------- */
+
+// Before launch the site collects no TestFlight sign-ups, only a note of
+// who wants to hear when the app is out. People with an iPhone Duo can
+// also offer to test.
 
 // The form writes an email; the visitor picks how to send it. Nothing is
 // sent from this page.
@@ -330,7 +334,7 @@ function inviteForm() {
   const copyButton = $("#invite-copy-button");
   address.href = `mailto:${BETA_EMAIL}`;
   address.textContent = BETA_EMAIL;
-  const fallbackMail = () => { location.href = `mailto:${BETA_EMAIL}?subject=${encodeURIComponent("CineTrack beta invite")}`; };
+  const fallbackMail = () => { location.href = `mailto:${BETA_EMAIL}?subject=${encodeURIComponent("CineTrack launch list")}`; };
 
   const open = () => {
     form.hidden = false; done.hidden = true; error.hidden = true;
@@ -367,25 +371,22 @@ function inviteForm() {
     const email = (data.get("email") || "").trim();
     const devices = data.getAll("devices").join(", ");
     const note = (data.get("note") || "").trim();
+    const duoTest = Boolean(data.get("duotest"));
     const fail = (message, field) => { error.textContent = message; error.hidden = false; form.elements[field]?.focus?.(); };
-    if (!name) return fail("Please add your name.", "name");
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail("That email doesn't look right.", "email");
-    if (!data.get("os")) return fail("The beta needs iOS or iPadOS 27 or later. Tick the box once your device is on it.", "os");
-    if (!data.get("consent")) return fail("Please tick the box about beta software to continue.", "consent");
     error.hidden = true;
 
     // A plain-text email (mailto can't carry formatting), laid out to read well.
     const body = [
       "Hi Afonso,", "",
-      "I'd like to join the CineTrack beta.", "",
-      `Name: ${name}`,
-      `Apple Account email: ${email}`,
+      "Please tell me when CineTrack is on the App Store.", "",
+      ...(name ? [`Name: ${name}`] : []),
+      `Email: ${email}`,
       `Devices: ${devices || "Not said"}`,
-      "On iOS or iPadOS 27 or later: yes",
+      ...(duoTest ? ["", "I have an iPhone Duo and would like to help test before launch. The email above is the one on my Apple Account."] : []),
       ...(note ? ["", `Note: ${note}`] : []),
-      "", "I understand this is beta software, and I've read the terms and privacy policy.",
     ].join("\n");
-    const subject = `CineTrack beta request: ${name}`;
+    const subject = duoTest ? "CineTrack launch list (Duo tester)" : "CineTrack launch list";
     const query = `to=${encodeURIComponent(BETA_EMAIL)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     const apple = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
     // On iPhone and iPad the Gmail app has its own link; elsewhere Gmail opens in the browser.

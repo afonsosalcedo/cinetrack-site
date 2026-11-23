@@ -15,7 +15,7 @@ Static HTML, CSS and two small scripts. No build step, no dependencies, no track
 
 ## Things to set
 
-- **App Store link.** Set `APP_STORE_URL` at the top of `site.js`. While it is empty the download buttons open an email asking for a TestFlight invite (`BETA_EMAIL` and `BETA_REQUEST`).
+- **App Store link.** Set `APP_STORE_URL` at the top of `site.js`. While it is empty the download buttons open the launch-list form, which writes an email to `BETA_EMAIL` asking to be told when the app is out (and, for iPhone Duo owners, offering to test).
 - **Season dates.** The countdown reads the next season's dates from the `cinetrack-data` manifest. `FALLBACK_SEASON` in `site.js` is used only if that download fails.
 
 ## Preview
