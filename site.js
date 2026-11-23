@@ -336,8 +336,13 @@ function inviteForm() {
   address.textContent = BETA_EMAIL;
   const fallbackMail = () => { location.href = `mailto:${BETA_EMAIL}?subject=${encodeURIComponent("CineTrack launch list")}`; };
 
-  const open = () => {
+  // `duoTester` is true when the form is opened from the "Help test"
+  // button: the Duo boxes come ticked, since that is what was asked for.
+  const open = (duoTester = false) => {
     form.hidden = false; done.hidden = true; error.hidden = true;
+    form.elements.duotest.checked = duoTester;
+    const duo = form.querySelector('input[name="devices"][value="iPhone Duo"]');
+    if (duoTester && duo) duo.checked = true;
     if (typeof dialog.showModal !== "function") return fallbackMail();
     if (!dialog.open) dialog.showModal();
   };
@@ -345,7 +350,7 @@ function inviteForm() {
     const trigger = event.target.closest("[data-open-invite]");
     if (!trigger) return;
     event.preventDefault();
-    open();
+    open(trigger.hasAttribute("data-duo-tester"));
   });
   if (location.hash === "#invite" && !APP_STORE_URL) open();
   $$("[data-close-invite]", dialog).forEach((button) => button.addEventListener("click", () => dialog.close()));
