@@ -379,7 +379,7 @@ function inviteForm() {
     // A plain-text email (mailto can't carry formatting), laid out to read well.
     const body = [
       "Hi Afonso,", "",
-      "Please tell me when CineTrack is on the App Store.", "",
+      "Please tell me when CineTrack is on the App Store, and send me occasional CineTrack news.", "",
       ...(name ? [`Name: ${name}`] : []),
       `Email: ${email}`,
       `Devices: ${devices || "Not said"}`,
